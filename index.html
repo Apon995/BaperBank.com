@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login to Baper bank</title>
+    <!-- --tailwind-cdn-- -->
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- --fonts-cdn-- -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@200;300;400;500;600&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body class="font-[Open Sans] dark:bg-[#fff] min-h-screen">
+    <header>
+        <h1 class="text-4xl text-gray-900 font-semibold text-center py-5">
+            Welcome To your <span class="text-blue-950">Baper Bank</span>!!!
+        </h1>
+         
+        <div class="py-4 lg:w-[30%] md:w-[60%] w-[90%] mx-auto shadow-lg bg-gray-100 rounded-xl">
+            <h1 class="text-center font-semibold text-4xl text-gray-600">
+                Bap er Bank <br />
+                <span>Login </span>
+            </h1>
+            <div  class="space-y-3 py-5 px-5">
+                
+                <input type="Name" name="name" id="user-name" placeholder="Enter your username " autocomplete="off"
+                    maxlength="30"
+                    class="w-full dark:bg-[#fff] px-2 py-4 text-black outline-none rounded-lg outline-2 focus:outline-gray-300 placeholder:text-base placeholder:text-[#adadad]" />
+                <p id="worng-email" class="text-gray-600"></p>
+                <input type="email" name="email" id="user-email" placeholder="Enter Your email " autocomplete="off" 
+                    maxlength="30"
+                    class="w-full dark:bg-[#fff] px-2 py-4 text-black outline-none rounded-lg outline-2 focus:outline-gray-300 placeholder:text-base placeholder:text-[#adadad]" />
+                <p id="worng-pass" class="text-gray-600"></p>
+                <input type="password" name="password" id="user-password" placeholder="Enter your password"
+                    class="w-full dark:bg-[#fff] px-2 py-4 text-black outline-none rounded-lg outline-2 focus:outline-gray-300 placeholder:text-base placeholder:text-[#adadad]" />
+                <div class="flex flex-row-reverse justify-between">
+                    <a href="#" class="text-sm text-gray-700 hover:text-black cursor-pointer">Forget password</a>
+                    <label for="" class="text-sm text-gray-700 inline-flex gap-1">
+                        <input type="checkbox" class="checkbox checkbox-sm checkbox-primary" id="checkbox"
+                            onclick="checkPassword()" />
+                        show password
+                    </label>
+                </div>
+
+                <div class="py-4 space-y-1">
+                    <!-- <button
+                        class="btn cursor-pointer w-full bg-gradient-to-r from-[#ff37f2] to-[#405aff] border-none text-[#fff] text-base rounded-md font-semibold"
+                        onclick="LoginBank()">
+                        Login
+                    </button> -->
+
+                    <input type="submit" value="submit" id="loginbtn" class="btn cursor-pointer w-full bg-gradient-to-r from-[#ff37f2] to-[#405aff] border-none text-[#fff] text-base rounded-md font-semibold">
+                    <p class="text-base text-gray-500 text-center">
+                        ----------------Or-----------------
+                    </p>
+
+                    <p class="text-sm text-gray-600 text-center">
+                        You don't have an account ?
+                        <a href="#" class="text-[#405aff]">Register</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+  <script src="./scriptsfile/functions.js"></script>
+  <script src="./scriptsfile/login.js"></script>
+</body>
+
+</html>
