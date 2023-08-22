@@ -9,6 +9,9 @@ const getValueInputfieldfromlogin = (fieldId) => {
 const getValueInputfrombankpage = (Elementid) => {
   let value = document.getElementById(Elementid).value;
   document.getElementById(Elementid).value = "";
+  if (isNaN(value)) {
+    return;
+  }
   value = parseInt(value);
 
   return value;
@@ -24,39 +27,69 @@ const getvalueofinnerText = (innerId) => {
 const setAmount = (setelementid, totalset) => {
   let setamount = document.getElementById(setelementid);
   setamount.innerText = totalset;
-
   return setamount;
 };
 
-const SaveDeposit = (elementId) => {
-  let deposit = document.getElementById(elementId).innerText;
-  deposit = parseFloat(deposit);
-  localStorage.setItem("depositBalance", deposit);
+const saveDeposit = (amount) => {
+  localStorage.setItem("deposit", amount);
 };
-const Savewithdraw = (elementId) => {
-  let withdraw = document.getElementById(elementId).innerText;
-  withdraw = parseFloat(withdraw);
-  localStorage.setItem("withdrawBalance", withdraw);
+
+const saveWithdraw = (amount) => {
+  localStorage.setItem("withdraw", amount);
 };
-const SaveTotal = (elementId) => {
-  let total = document.getElementById(elementId).innerText;
-  total = parseFloat(total);
-  localStorage.setItem("TotalBalance", total);
+
+const saveTotal = (amount) => {
+  localStorage.setItem("total", amount);
 };
 
 const getDeposit = () => {
-  document.getElementById("currentdeposit").innerText =
-    localStorage.getItem("depositBalance");
+  let depositbalance = localStorage.getItem("deposit");
+  setAmount("currentdeposit", depositbalance);
+  if (depositbalance !== null) {
+    depositbalance = parseInt(depositbalance);
+    setAmount("currentdeposit", depositbalance);
+    if (!isNaN(depositbalance)) {
+      setAmount("currentdeposit", depositbalance);
+    } else {
+      setAmount("currentdeposit", "00");
+    }
+  } else {
+    setAmount("currentdeposit", "00");
+  }
 };
+getDeposit();
+
 const getWithdraw = () => {
-  document.getElementById("withdrawAmount").innerText =
-    localStorage.getItem("withdrawBalance");
+  let withdraw = localStorage.getItem("withdraw");
+  setAmount("withdrawAmount", withdraw);
+  if (withdraw !== null) {
+    withdraw = parseInt(withdraw);
+    setAmount("withdrawAmount", withdraw);
+    if (!isNaN(withdraw)) {
+      setAmount("withdrawAmount", withdraw);
+    } else {
+      setAmount("withdrawAmount", "00");
+    }
+  } else {
+    setAmount("withdrawAmount", "00");
+  }
 };
+getWithdraw();
+
 const getTotal = () => {
-  document.getElementById("currentbalance").innerText =
-    localStorage.getItem("TotalBalance");
+  let total = localStorage.getItem("total");
+  setAmount("currentbalance", total);
+  if (total !== null) {
+    total = parseInt(total);
+    setAmount("currentbalance", total);
+    if (!isNaN(total)) {
+      setAmount("currentbalance", total);
+    } else {
+      setAmount("currentbalance", "00");
+    }
+  } else {
+    setAmount("currentbalance", "00");
+  }
 };
 
-getDeposit();
-getWithdraw();
 getTotal();

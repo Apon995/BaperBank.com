@@ -17,8 +17,9 @@ const Depositnow = () => {
 
   setAmount("currentdeposit", settotal);
   setAmount("currentbalance", settotalbalance);
-  SaveDeposit("currentdeposit");
-  SaveTotal("currentbalance");
+
+  saveDeposit(settotal);
+  saveTotal(settotalbalance);
 };
 
 const WithdrawNow = () => {
@@ -38,8 +39,9 @@ const WithdrawNow = () => {
     let currentbalancetotal = currentbalance - Withdrawinputfield;
     setAmount("currentbalance", currentbalancetotal);
     setAmount("withdrawAmount", total);
-    Savewithdraw("withdrawAmount");
-    SaveTotal("currentbalance");
+    saveWithdraw(total);
+    saveTotal(currentbalancetotal);
+
   } else {
     document.getElementById("errormsg").innerText =
       "Tor baper bank e Atto taka nai !";
